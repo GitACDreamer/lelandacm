@@ -74,7 +74,7 @@
 
 
 
-  <meta name="keywords" content="王小波,读书,">
+  <meta name="keywords" content="android,recycleview,本地缓存,">
 
 
 
@@ -85,20 +85,22 @@
 
 
 
-<meta name="description" content="致小阳的一封信    &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;接下来的半年时间的工作安排的都会很紧凑，都会处于忙碌中，人在忙碌的时候往往会忘记微笑、忘记停下来思考，沉浸在Plan、Deadline中，偶尔伸下懒腰，感觉到疲惫。每次下班可能会渐渐忘记自己以前还有阅读的爱好，想到这就后怕。记得上次买的一本书——《沉默的大多数》里面夹藏一封很有意思的信，所以摘抄下来，这封信是王小波写给他的好友刘">
-<meta name="keywords" content="王小波,读书">
+<meta name="description" content="DiskLruCache使用的步骤 创建缓存路径 123//设置图片缓存路径File cacheDir = getDiskCacheDir(context, &amp;quot;thumb&amp;quot;);if (!cacheDir.exists()) cacheDir.mkdirs();  创建DiskLruCache实例 12//创建DiskLruCache实例，初始化缓存数据mDiskLruCach">
+<meta name="keywords" content="android,recycleview,本地缓存">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《沉默的大多数》——致小阳的一封信">
-<meta property="og:url" content="https://gitacdreamer.github.io/lelandacm/2018/04/26/read-silent/index.html">
+<meta property="og:title" content="DiskLruCache本地缓存的使用，利用RecycleView和线程池加载多图">
+<meta property="og:url" content="https://gitacdreamer.github.io/lelandacm/2019/01/31/disklrucache/index.html">
 <meta property="og:site_name" content="Lawrence Li&#39;s website">
-<meta property="og:description" content="致小阳的一封信    &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;接下来的半年时间的工作安排的都会很紧凑，都会处于忙碌中，人在忙碌的时候往往会忘记微笑、忘记停下来思考，沉浸在Plan、Deadline中，偶尔伸下懒腰，感觉到疲惫。每次下班可能会渐渐忘记自己以前还有阅读的爱好，想到这就后怕。记得上次买的一本书——《沉默的大多数》里面夹藏一封很有意思的信，所以摘抄下来，这封信是王小波写给他的好友刘">
+<meta property="og:description" content="DiskLruCache使用的步骤 创建缓存路径 123//设置图片缓存路径File cacheDir = getDiskCacheDir(context, &amp;quot;thumb&amp;quot;);if (!cacheDir.exists()) cacheDir.mkdirs();  创建DiskLruCache实例 12//创建DiskLruCache实例，初始化缓存数据mDiskLruCach">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://blogs-1251180347.cos.ap-guangzhou.myqcloud.com/email.jpg">
-<meta property="og:updated_time" content="2019-01-31T13:51:10.919Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4073499-83fccefb47cef142.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4073499-cfd0cca6d06ec51a.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4073499-9f06245b6445a0a9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-01-31T15:35:19.676Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《沉默的大多数》——致小阳的一封信">
-<meta name="twitter:description" content="致小阳的一封信    &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;接下来的半年时间的工作安排的都会很紧凑，都会处于忙碌中，人在忙碌的时候往往会忘记微笑、忘记停下来思考，沉浸在Plan、Deadline中，偶尔伸下懒腰，感觉到疲惫。每次下班可能会渐渐忘记自己以前还有阅读的爱好，想到这就后怕。记得上次买的一本书——《沉默的大多数》里面夹藏一封很有意思的信，所以摘抄下来，这封信是王小波写给他的好友刘">
-<meta name="twitter:image" content="https://blogs-1251180347.cos.ap-guangzhou.myqcloud.com/email.jpg">
+<meta name="twitter:title" content="DiskLruCache本地缓存的使用，利用RecycleView和线程池加载多图">
+<meta name="twitter:description" content="DiskLruCache使用的步骤 创建缓存路径 123//设置图片缓存路径File cacheDir = getDiskCacheDir(context, &amp;quot;thumb&amp;quot;);if (!cacheDir.exists()) cacheDir.mkdirs();  创建DiskLruCache实例 12//创建DiskLruCache实例，初始化缓存数据mDiskLruCach">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/4073499-83fccefb47cef142.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -128,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://gitacdreamer.github.io/lelandacm/2018/04/26/read-silent/">
+  <link rel="canonical" href="https://gitacdreamer.github.io/lelandacm/2019/01/31/disklrucache/">
 
 
 
 
 
-  <title>《沉默的大多数》——致小阳的一封信 | Lawrence Li's website</title>
+  <title>DiskLruCache本地缓存的使用，利用RecycleView和线程池加载多图 | Lawrence Li's website</title>
   
 
 
@@ -243,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gitacdreamer.github.io/lelandacm/lelandacm/2018/04/26/read-silent/">
+    <link itemprop="mainEntityOfPage" href="https://gitacdreamer.github.io/lelandacm/lelandacm/2019/01/31/disklrucache/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lawrence Li">
@@ -260,7 +262,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">《沉默的大多数》——致小阳的一封信</h2>
+          <h2 class="post-title" itemprop="name headline">DiskLruCache本地缓存的使用，利用RecycleView和线程池加载多图</h2>
         
 
         <div class="post-meta">
@@ -272,8 +274,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-26T21:41:44+08:00">
-                2018-04-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-31T23:33:38+08:00">
+                2019-01-31
               </time>
             
 
@@ -295,8 +297,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/lelandacm/categories/read/" itemprop="url" rel="index">
-                    <span itemprop="name">读书</span>
+                  <a href="/lelandacm/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -312,7 +314,7 @@
 
           
           
-             <span id="/lelandacm/2018/04/26/read-silent/" class="leancloud_visitors" data-flag-title="《沉默的大多数》——致小阳的一封信">
+             <span id="/lelandacm/2019/01/31/disklrucache/" class="leancloud_visitors" data-flag-title="DiskLruCache本地缓存的使用，利用RecycleView和线程池加载多图">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -379,21 +381,40 @@
       
 
       
-        <h1 align="center">致小阳的一封信</h1>
-
-<p><img src="https://blogs-1251180347.cos.ap-guangzhou.myqcloud.com/email.jpg" alt="email.jpg"></p>
-<blockquote>
-<p>&ensp;&ensp;&ensp;&ensp;接下来的半年时间的工作安排的都会很紧凑，都会处于忙碌中，人在忙碌的时候往往会忘记微笑、忘记停下来思考，沉浸在Plan、Deadline中，偶尔伸下懒腰，感觉到疲惫。每次下班可能会渐渐忘记自己以前还有阅读的爱好，想到这就后怕。记得上次买的一本书——《沉默的大多数》里面夹藏一封很有意思的信，所以摘抄下来，这封信是王小波写给他的好友刘晓阳的，关于在美国学习生活的琐事。这篇已发布在我微信公众号的文章，再次摘抄一下。</p>
+        <p><img src="http://upload-images.jianshu.io/upload_images/4073499-83fccefb47cef142.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="data_cache.jpg"></p>
+<h3 id="DiskLruCache使用的步骤"><a href="#DiskLruCache使用的步骤" class="headerlink" title="DiskLruCache使用的步骤"></a>DiskLruCache使用的步骤</h3><ol>
+<li><p>创建缓存路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//设置图片缓存路径</span><br><span class="line">File cacheDir = getDiskCacheDir(context, &quot;thumb&quot;);</span><br><span class="line">if (!cacheDir.exists()) cacheDir.mkdirs();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建DiskLruCache实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//创建DiskLruCache实例，初始化缓存数据</span><br><span class="line">mDiskLruCache = DiskLruCache.open(cacheDir, AppUtils.getAppVersionCode(), 1, 50 * 1024 * 1024);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加载缓存<br><em><code>先判断本地是否有缓存，如果没有则从网络中加载缓存，否则直接加载本地缓存</code></em></p>
+</li>
+</ol>
+<ul>
+<li><p>将图片链接转换成MD5编码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//生成图片URL对应的key</span><br><span class="line">final String key = EncryptUtils.encryptMD5ToString(imageUrl).toLowerCase();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载网络或者直接获取本地缓存图片（如果图片较多，可采取线程池）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">//查找key对应的缓存</span><br><span class="line">snapshot = mDiskLruCache.get(key);</span><br><span class="line">//如果没有找到对应的本地缓存，则准备从网络上请求数据，并且写入缓存</span><br><span class="line">if (snapshot == null) &#123;</span><br><span class="line">    DiskLruCache.Editor editor = mDiskLruCache.edit(key);</span><br><span class="line">    if (editor != null) &#123;</span><br><span class="line">        OutputStream out = editor.newOutputStream(0);</span><br><span class="line">        if (downloadUrlToString(imageUrl, out)) &#123;</span><br><span class="line">            editor.commit();</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">             editor.abort();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//缓存被写入后，再次查找key对应的缓存</span><br><span class="line">snapshot = mDiskLruCache.get(key);</span><br><span class="line">try &#123;</span><br><span class="line">    //从缓存中获取图片，如果有，则直接设置到页面上，如果没有，则从网络上下载</span><br><span class="line">    Bitmap bitmap = getBitmapFromMemoryCache(imageUrl);</span><br><span class="line">    if (bitmap == null) &#123;</span><br><span class="line">        //创建下载图片任务</span><br><span class="line">        BitmapWorkerTask task = new BitmapWorkerTask();</span><br><span class="line">        //添加下载任务到集合中</span><br><span class="line">        collections.add(task);</span><br><span class="line">        //将任务队列使用线程池处理</span><br><span class="line">        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, imageUrl);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        if (imageView != null) imageView.setImageBitmap(bitmap);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; catch (final Exception e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加载图片到指定的控件上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (imageView != null) imageView.setImageBitmap(bitmap);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="4">
+<li><p>效果图<br><img src="http://upload-images.jianshu.io/upload_images/4073499-cfd0cca6d06ec51a.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cache.gif"><br>录制了半天老是有花脸<br><img src="http://upload-images.jianshu.io/upload_images/4073499-9f06245b6445a0a9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cry.jpg"></p>
+</li>
+<li><p>参考链接<br><a href="http://blog.csdn.net/guolin_blog/article/details/34093441" target="_blank" rel="noopener">Demo中用到的图片源，采用的郭霖大神的图片</a><br><a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">用到了快速开发工具库</a><br><a href="https://github.com/CymChad/BaseRecyclerViewAdapterHelper" target="_blank" rel="noopener">用到了RecyclerView的万能适配Adapter</a></p>
+</li>
+<li>源码传送门<br>DiskLruCache:<a href="https://github.com/GitACDreamer/DiskLruCache" target="_blank" rel="noopener">https://github.com/GitACDreamer/DiskLruCache</a></li>
+<li>题外<blockquote>
+<p>使用模拟器出现的意料错误，真机没有出现，通过Google搜索发现是<code>依赖库版本不一致导致的异常</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.ClassNotFoundException: Didn&apos;t find class &quot;cn.net.sunet.disklrucache.Mainactivity&quot; on path: DexPathList[[zip file &quot;/data/app/cn.net.sunet.disklrucache-2/base.apk&quot;, zip file &quot;/data/app/cn.net.sunet.disklrucache-2/split_lib_slice_9_apk.apk&quot;],nativeLibraryDirectories=[/vendor/lib64, /system/lib64]]。</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p>我的小阳：</p>
-<p>近来生了一肚子闷气，和你聊上一通。你我真是好哥们。别的朋友之间老把金贴在脸上，只有和你可以说说不顺心的事。</p>
-<p>近来百事不如意，这几天只觉得心里不痛快，上课出神，连最简单的英语也常听不懂，什么事也不想干。你说咱们到美国来，不就是为了上学吗？上学没资助行吗？他们老美明明知道这个，偏偏和咱们过不去，嫌咱们言必提资助，这不是鸡蛋里挑骨头吗？还说什么你们的政府为什么不资助，这不是屁话吗？</p>
-<p>实不瞒兄说，前些日子我去考了一场GRE，得了1060分。当然不如老美中最高的，也还可以算个中游。我拿着这个分去问pitt的一个系，问问机会有多少，谁知碰上了一个天杀的老美，把我挖苦了一顿，大概意思是嫌我没有申请就问机会，把那张驴脸一拉，说我不是要上学，而是要资助。这分明是欺负咱们没钱交学费，他还说他们系要减削，连他们同事的饭碗都保不住，没钱管chinese。不三不四的话说了有半个多小时，气得我脸发紫，有心回他几句，英文全气忘了。这几天见老美就不舒服，觉得这伙人全不是好人。中国人我也看不上眼，只觉得想留下来的全是贱骨头。真想负一口气回国去，可是就这么回去没法交待。</p>
-<p>不知为什么，吃了洋人的窝囊气，分外的不受用，又觉得中国穷，害得我们在外面灰头土脸的盖不住。要是中国有日本的财力，美国人对咱们也不敢这么放恣。</p>
-<p>这几天Pittsburgh的黑人老抢中国人，我们这条街上已经有20多个人遭了抢。这些人可能觉得中国人好欺负。我上一个课，班上有个泰国人。跟他谈起泰国拳，他说要借我拳经，等我炼了泰国拳，遇上抢劫的，非打出他们屎来不可，也出出咱们这口恶气。我老婆说我思想入了邪，已然神神叨叨了。我也觉得和蛮夷生气真是犯不上，可是想不生气又不成。阳公有何高见？这会儿想起阳公，真想乘兴而去，到明尼苏达听听兄的妙语：我这个人有一点不好，爱生闷气，越想越气，又没有阿Q搧自己耳光的招数，要是见到阳公，就能沾上一丝超脱的仙气。</p>
-<p>我有心唸统计，数学这玩艺是实打实的东西，唸好了也挣一口气，灭灭洋人的臭嘴。不过这东西也不好唸，首先就没有人要咱。顶顶致命的是英文不行，托福不敢去考，GRE词语只得370分，和人说英文结结巴巴，还常常有问没答，这可怎么好。只恨这洋鬼子话，这么难学！</p>
-<p>代问尊嫂好！</p>
-<p>山妻一并致意！</p>
+</li>
+</ol>
 
       
     </div>
@@ -414,7 +435,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://gitacdreamer.github.io/lelandacm/2018/04/26/read-silent/" title="《沉默的大多数》——致小阳的一封信">https://gitacdreamer.github.io/lelandacm/2018/04/26/read-silent/</a>
+    <a href="https://gitacdreamer.github.io/lelandacm/2019/01/31/disklrucache/" title="DiskLruCache本地缓存的使用，利用RecycleView和线程池加载多图">https://gitacdreamer.github.io/lelandacm/2019/01/31/disklrucache/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -429,9 +450,11 @@
       
         <div class="post-tags">
           
-            <a href="/lelandacm/tags/王小波/" rel="tag"># 王小波</a>
+            <a href="/lelandacm/tags/android/" rel="tag"># android</a>
           
-            <a href="/lelandacm/tags/读书/" rel="tag"># 读书</a>
+            <a href="/lelandacm/tags/recycleview/" rel="tag"># recycleview</a>
+          
+            <a href="/lelandacm/tags/本地缓存/" rel="tag"># 本地缓存</a>
           
         </div>
       
@@ -444,8 +467,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/lelandacm/2018/04/23/mengbei/" rel="next" title="《宇宙墓碑》">
-                <i class="fa fa-chevron-left"></i> 《宇宙墓碑》
+              <a href="/lelandacm/2019/01/31/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -453,10 +476,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/lelandacm/2019/01/31/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -606,7 +625,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">致小阳的一封信</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#DiskLruCache使用的步骤"><span class="nav-number">1.</span> <span class="nav-text">DiskLruCache使用的步骤</span></a></li></ol></div>
             
 
           </div>
