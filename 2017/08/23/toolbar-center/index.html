@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+
+
+  <meta name="keywords" content="android,工具栏,搜索,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在开发的过程中经常要用到工具栏和菜单栏，有时候你看到有些APP的工具栏多么炫酷，然你也想做一个类似的，发现在做的过程中会遇到许多的坑，至于那些坑只有你自己去通过编码、调试、发现问题、查阅资料、解决问题一般开发都需要经过这个过程。所以在此将此知识点通过博客的形式记录下来。   工具栏文字样式设置：居中、颜色、大小等属性设置   设置工具栏的Style123456789101112131415161">
+<meta name="keywords" content="android,工具栏,搜索">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工具栏样式[标题居中、颜色自定义]，添加搜索功能">
+<meta property="og:url" content="https://lelandacm.com/2017/08/23/toolbar-center/index.html">
+<meta property="og:site_name" content="Lawrence Li&#39;s website">
+<meta property="og:description" content="在开发的过程中经常要用到工具栏和菜单栏，有时候你看到有些APP的工具栏多么炫酷，然你也想做一个类似的，发现在做的过程中会遇到许多的坑，至于那些坑只有你自己去通过编码、调试、发现问题、查阅资料、解决问题一般开发都需要经过这个过程。所以在此将此知识点通过博客的形式记录下来。   工具栏文字样式设置：居中、颜色、大小等属性设置   设置工具栏的Style123456789101112131415161">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4073499-f8eedbd1047b9f6c.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4073499-46e7c5831c8dd0b1.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2019-02-01T01:54:45.968Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="工具栏样式[标题居中、颜色自定义]，添加搜索功能">
+<meta name="twitter:description" content="在开发的过程中经常要用到工具栏和菜单栏，有时候你看到有些APP的工具栏多么炫酷，然你也想做一个类似的，发现在做的过程中会遇到许多的坑，至于那些坑只有你自己去通过编码、调试、发现问题、查阅资料、解决问题一般开发都需要经过这个过程。所以在此将此知识点通过博客的形式记录下来。   工具栏文字样式设置：居中、颜色、大小等属性设置   设置工具栏的Style123456789101112131415161">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/4073499-f8eedbd1047b9f6c.gif?imageMogr2/auto-orient/strip">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lelandacm.com/2017/08/23/toolbar-center/">
+
+
+
+
+
+  <title>工具栏样式[标题居中、颜色自定义]，添加搜索功能 | Lawrence Li's website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lawrence Li's website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">吾生也有涯，而知也无涯。以有涯随无涯，殆已，已而为知者，殆而已矣。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lelandacm.com/2017/08/23/toolbar-center/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lawrence Li">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lawrence Li's website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">工具栏样式[标题居中、颜色自定义]，添加搜索功能</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-23T23:23:33+08:00">
+                2017-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/08/23/toolbar-center/" class="leancloud_visitors" data-flag-title="工具栏样式[标题居中、颜色自定义]，添加搜索功能">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>在开发的过程中经常要用到工具栏和菜单栏，有时候你看到有些APP的工具栏多么炫酷，然你也想做一个类似的，发现在做的过程中会遇到许多的坑，至于那些坑只有你自己去通过编码、调试、发现问题、查阅资料、解决问题一般开发都需要经过这个过程。所以在此将此知识点通过博客的形式记录下来。</p>
+</blockquote>
+<ul>
+<li><strong>工具栏文字样式设置：<code>居中</code>、<code>颜色</code>、<code>大小</code>等属性设置</strong></li>
+</ul>
+<ol>
+<li>设置工具栏的<code>Style</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.v7.widget.Toolbar</span><br><span class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</span><br><span class="line">    android:id=&quot;@+id/view_toolbar&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">    android:background=&quot;@color/colorPrimary&quot;</span><br><span class="line">    android:minHeight=&quot;?attr/actionBarSize&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id=&quot;@+id/tv_toolbar&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:textColor=&quot;@color/colorAccent&quot;</span><br><span class="line">        android:layout_gravity=&quot;center&quot;</span><br><span class="line">        android:text=&quot;Toolbar Title&quot;/&gt;</span><br><span class="line"></span><br><span class="line">&lt;/android.support.v7.widget.Toolbar&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>需要注意的几点是：</p>
+<ul>
+<li><code>Toolbar</code>可以通过<code>android:background</code>设置背景色。</li>
+<li><code>Toolbar</code>可以通过<code>layout_height</code>设置工具栏的高度，上面是设置为系统<code>AcitonBar</code>默认大小，我个人习惯设置为50dp。</li>
+<li>工具栏的各种属性可以通过设置<code>TextView</code>的属性来展现到<code>UI</code>，<code>layout_gravity</code>属性相对于父布局也就是这里的<code>Toolbar</code>来说的，而<code>gravity</code>属性是相对于自己控件本身的布局。</li>
+</ul>
+<ol start="2">
+<li>代码设置工具栏的标题等属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tvToolbar.setText(title);//set toolbar textView content</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><strong>如何隐藏系统自带的工具栏？</strong></li>
+</ul>
+<ol>
+<li>通过配置XML实现</li>
+</ol>
+<ul>
+<li><p>设置界面全屏效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:theme=&quot;@android:style/Theme.NoTitleBar.Fullscreen&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置无标题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:theme=&quot;@android:style/Theme.NoTitleBar&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>本Demo是统一设置所有页面为无标题，通过设置<code>Style</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Base application theme. --&gt;</span><br><span class="line">&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;&gt;</span><br><span class="line">    &lt;!-- Customize your theme here. --&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;@color/colorPrimary&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/colorPrimaryDark&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorAccent&quot;&gt;@color/colorAccent&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后添加到<code>AndroidManifest.xml</code>的App的<code>theme</code>属性中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;application</span><br><span class="line">    android:allowBackup=&quot;true&quot;</span><br><span class="line">    android:icon=&quot;@mipmap/ic_launcher&quot;</span><br><span class="line">    android:label=&quot;@string/app_name&quot;</span><br><span class="line">    android:roundIcon=&quot;@mipmap/ic_launcher_round&quot;</span><br><span class="line">    android:supportsRtl=&quot;true&quot;</span><br><span class="line">    android:theme=&quot;@style/AppTheme&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>通过代码实现</li>
+</ol>
+<ul>
+<li><p>设置全屏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,  WindowManager.LayoutParams.FLAG_FULLSCREEN);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置无标题栏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requestWindowFeature(Window.FEATURE_NO_TITLE);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>注意：这些都是设置代码需要写在调用设置布局文件之前</em></p>
+<ul>
+<li><strong>如何在工具栏上优雅地使用菜单栏(SearchView)</strong></li>
+</ul>
+<ol>
+<li>工具栏配置文件XML<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;menu</span><br><span class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:id=&quot;@+id/action_search&quot;</span><br><span class="line">        android:icon=&quot;@android:drawable/ic_menu_search&quot;</span><br><span class="line">        android:title=&quot;@android:string/search_go&quot;</span><br><span class="line">        app:actionViewClass=&quot;android.support.v7.widget.SearchView&quot;</span><br><span class="line">        app:showAsAction=&quot;collapseActionView|ifRoom&quot;/&gt;</span><br><span class="line">&lt;/menu&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>*注意：这里一定要设置<code>app:actionViewClass=&quot;android.support.v7.widget.SearchView&quot;</code>不然实例化获取到的对象为<code>null</code>，<code>app:showAsAction</code>设置有<code>collapseActionView</code>属性，searchView菜单栏才会有<code>返回箭头</code></p>
+<ol start="2">
+<li><p>使用工具栏的配置文件XML</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;include layout=&quot;@layout/view_toolbar&quot;/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加载工具栏的<code>Menu</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//toolbar add menu</span><br><span class="line">toolbar.inflateMenu(R.menu.menu_search);</span><br><span class="line">toolbar.setOnMenuItemClickListener(onMenuItemClickListener);</span><br><span class="line"></span><br><span class="line">//toolbar search menu click listener</span><br><span class="line">private Toolbar.OnMenuItemClickListener onMenuItemClickListener = new Toolbar.OnMenuItemClickListener() &#123;</span><br><span class="line">	@Override</span><br><span class="line">	public boolean onMenuItemClick(MenuItem item) &#123;</span><br><span class="line">        //charge the id is equal what you want</span><br><span class="line">        if (item.getItemId() == R.id.action_search) &#123;</span><br><span class="line">            queryData(item);</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><strong>不使用系统菜单栏会导致一些菜单栏相关函数<code>Override</code>的<code>onPrepareOptionsMenu</code>、<code>onOptionsItemSelected</code>等函数不调用如何解决？</strong></li>
+</ul>
+<ol>
+<li>基于<code>Fragment</code>页面<br>在<code>onCreate</code>设置<code>setHasOptionsMenu(true)</code><br>和 <code>onViewCreated</code>设置<code>getActivity().invalidateOptionsMenu()</code><br>但是我测试发现并没有没有调用<code>onPrepareOptionsMenu</code>等函数，这个后续查阅资料<a href="https://stackoverflow.com/questions/15656953/onprepareoptionsmenu-not-getting-called-in-fragments" target="_blank" rel="noopener">stackOverFlow这个好像没有解决此问题</a></li>
+<li>基于<code>Activity</code>页面<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setSupportActionBar(toolbar);</span><br><span class="line">getSupportActionBar().setDisplayHomeAsUpEnabled(true);</span><br><span class="line">getSupportActionBar().setDisplayShowHomeEnabled(true);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>也可以像设置前面设置APP所有页面无标题一样设置Activity<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Activity theme. --&gt;</span><br><span class="line">&lt;style name=&quot;ActivityTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;</span><br><span class="line">    &lt;!-- Customize your theme here. --&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimary&quot;&gt;@color/colorPrimary&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/colorPrimaryDark&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;colorAccent&quot;&gt;@color/colorAccent&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后设置到<code>AndroidManifest.xml</code>的指定的Activity的<code>theme</code>属性中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> &lt;activity</span><br><span class="line">    android:name=&quot;.SearchViewActivity&quot;</span><br><span class="line">    android:theme=&quot;@style/ActivityTheme&quot;&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><strong>使用SearchView过程中你需要注意的问题和一个常见的BackPress退出问题</strong></li>
+</ul>
+<ol>
+<li><p>开启系统搜索服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SearchManager manager = (SearchManager) getContext().getSystemService(Context.SEARCH_SERVICE);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实例化SearchView对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mSearchView = (SearchView) item.getActionView();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置<code>setOnQueryTextListener</code>事件监听搜索条件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//on query text listener</span><br><span class="line">private SearchView.OnQueryTextListener onQueryTextListener = new SearchView.OnQueryTextListener() &#123;</span><br><span class="line">	@Override //submit the search condition</span><br><span class="line">	public boolean onQueryTextSubmit(String query) &#123;</span><br><span class="line">		Toast.makeText(getContext(), &quot;Search Data in fragment&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override //the search condition once changed will invoke this funtion</span><br><span class="line">	public boolean onQueryTextChange(String newText) &#123;</span><br><span class="line">	return false;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置<code>setOnQueryTextFocusChangeListener</code>事件监听输入框焦点的变化通过此函数解决了<code>OnBackPressed</code>直接退出APP的问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//the focus of the query condition box once changed , will call this funtion</span><br><span class="line">mSearchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() &#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void onFocusChange(View view, boolean focused) &#123;</span><br><span class="line">		//charge the focus is changed and the searchview icon isn&apos;t iconified</span><br><span class="line">		if (!focused &amp;&amp; !mSearchView.isIconified()) &#123;</span><br><span class="line">			//in the fragment you mus you this way can solve it</span><br><span class="line">			MenuItemCompat.collapseActionView(item);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>网上说的关闭活动的SearchView时的解决办法是<code>override</code> <code>onBackPressed</code>函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void onBackPressed() &#123;</span><br><span class="line">    if (!searchView.isIconified()) &#123;</span><br><span class="line">        searchView.setIconified(true);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        super.onBackPressed();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>在Fragment中当然没有这个函数可以让你重写，但是可以通过在基类implement OnBackPressed<em><code>(自己定义的)</code></em>接口详情请见<a href="https://medium.com/@Wingnut/onbackpressed-for-fragments-357b2bf1ce8e" target="_blank" rel="noopener">onBackPressed() for Fragments</a>,我通过此方法，使用上面的这种发现效果图如<code>before.gif</code>并不是解决办法，还是监听<code>setOnQueryTextFocusChangeListener</code>是正确的，正确图片如下<code>perfect.gif</code><br><img src="http://upload-images.jianshu.io/upload_images/4073499-f8eedbd1047b9f6c.gif?imageMogr2/auto-orient/strip" alt="before.gif"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4073499-46e7c5831c8dd0b1.gif?imageMogr2/auto-orient/strip" alt="perfect.gif"></p>
+<ul>
+<li><strong>关于Toolbar使用的一些思考和总结</strong></li>
+</ul>
+<ol>
+<li>网络上此类型的提问太多，回答也太多，至于真正正确的答案需要你自己动手编码，自己经过测试才知道。</li>
+<li>Toolbar是受到系统样式的约束，如果自己设置了NoActionBar ,FullScreen等样式的话就会没有工具栏。</li>
+<li>你使用系统默认的样式<code>&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;</code>，然后在每个页面有自己定义的toolbar的话，这样会导致有两个工具栏[自己可以测试]。</li>
+</ol>
+<ul>
+<li><strong>参考链接</strong></li>
+</ul>
+<p><a href="https://developer.android.com/guide/topics/ui/menus.html" target="_blank" rel="noopener">如何使用菜单<code>Menu</code></a></p>
+<p><a href="https://developer.android.com/reference/android/support/v7/widget/SearchView.html" target="_blank" rel="noopener">如何使用<code>SearchView</code></a></p>
+<p><a href="http://blog.csdn.net/shakespeare001/article/details/7779011" target="_blank" rel="noopener">Android系统自带样式</a></p>
+<p><a href="https://stackoverflow.com/questions/21585326/implementing-searchview-in-action-bar" target="_blank" rel="noopener">Implementing SearchView in action bar</a></p>
+<p><a href="https://stackoverflow.com/questions/26533510/android-toolbar-center-title-and-custom-font" target="_blank" rel="noopener">Android toolbar center title and custom font</a></p>
+<p><a href="https://stackoverflow.com/questions/17506230/how-do-i-close-a-searchview-programmatically" target="_blank" rel="noopener">How do I close a SearchView programmatically?</a></p>
+<p><a href="https://stackoverflow.com/questions/15656953/onprepareoptionsmenu-not-getting-called-in-fragments" target="_blank" rel="noopener">onPrepareOptionsMenu not getting called in Fragments</a></p>
+<ul>
+<li><strong>完整源码传送门</strong><br>CenterTooolBarText:<a href="https://github.com/GitACDreamer/CenterToolbarText" target="_blank" rel="noopener">https://github.com/GitACDreamer/CenterToolbarText</a></li>
+</ul>
+<h3 id="希望大家多多关注star-and-fork"><a href="#希望大家多多关注star-and-fork" class="headerlink" title="希望大家多多关注star and fork"></a>希望大家多多关注star and fork</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Lawrence Li
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://lelandacm.com/2017/08/23/toolbar-center/" title="工具栏样式[标题居中、颜色自定义]，添加搜索功能">https://lelandacm.com/2017/08/23/toolbar-center/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag"># android</a>
+          
+            <a href="/tags/工具栏/" rel="tag"># 工具栏</a>
+          
+            <a href="/tags/搜索/" rel="tag"># 搜索</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/16/navigator/" rel="next" title="禁止滑动翻页的ViewPager和禁用BottomNavigationView动画">
+                <i class="fa fa-chevron-left"></i> 禁止滑动翻页的ViewPager和禁用BottomNavigationView动画
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/26/three-body/" rel="prev" title="《三体一》">
+                《三体一》 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Lawrence Li">
+            
+              <p class="site-author-name" itemprop="name">Lawrence Li</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/GitACDreamer" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/cqlliliang/home?topnav=1&wvr=6" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#希望大家多多关注star-and-fork"><span class="nav-number">1.</span> <span class="nav-text">希望大家多多关注star and fork</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lawrence Li</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("HQ6i700PLBq8jBz8SycoPi2c-gzGzoHsz", "QApQMWCIc340KgsoFun3jQwE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
